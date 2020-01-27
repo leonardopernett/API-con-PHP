@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>API</title>
+</head>
+
+<body>
+
+   <button onclick="obtener('dolar')">dolar</button>
+   <button onclick="obtener('euro')">euro</button>
+
+   <div id="resultado"></div>
+
+
+   <script>
+
+      const datos = document.getElementById('datos');
+
+      const obtener = async (moneda) => {
+         const res = await fetch(`http://localhost/API/backend/${moneda}`);
+         const data = await res.json();
+          resultado.innerHTML="";
+         for(let datos of data){
+            resultado.innerHTML += `fecha: ${datos.fecha} 
+                           - valor: ${datos.valor}
+                            <br>`;
+
+         }
+
+      }
+
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+#habilitar las varibales en el navegador 
+
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteRule ^([a-zA-Z0-9]*)$ datos.php?moneda=$1
